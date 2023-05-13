@@ -1,0 +1,106 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>SÁCH TỐT</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="Magnetic is a stunning responsive HTML5/CSS3 photography/portfolio website template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="ThemSuaXoa.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" title="SÁCH TỐT" alt="Magnetic" /></a>
+        </div><!-- end logo -->
+
+        <div id="menu_icon"></div>
+        <nav>
+            <ul id="menu">
+            </ul>
+        </nav><!-- end navigation menu -->
+
+        <div class="footer clearfix">
+            <a style="margin-bottom:10px;" class="btn btn-info btn-fw" href="https://localhost:44347/View/Contact.html" type="button">CONTACT US</a>
+
+            <a style="margin-bottom:10px;" class="btn btn-info btn-fw" href="https://localhost:44347/View/AddTruyenUser.html" type="button">ĐÓNG GÓP</a>
+
+            <a class="btn btn-info btn-fw" href="https://localhost:44347/View/Login.html" type="button">ĐĂNG XUẤT</a>
+
+        </div><!-- end footer -->
+    </header><!-- end header -->
+    <div>
+        <img style="width:100%;height:200px;" src="images/slide2.jpg" />
+    </div>
+    <section style="padding-top:50px;padding-bottom:150px" class="main clearfix">
+  
+            <table style="border:none;height:100%;">
+                <tbody>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Mã Truyện: </td>
+                        <td style="font-size:20px">
+                            <input id="txtID" type="text" name="ID"
+                                   placeholder="Mã Truyện" />
+                        </td>
+                    </tr>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Tên Truyện: </td>
+                        <td style="font-size:20px">
+                            <input st type="text" name="TenTruyen" placeholder="Tên Truyện" />
+                        </td>
+                    </tr>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Tác Giả: </td>
+                        <td style="font-size:20px">
+                            <input type="text" name="TacGia"
+                                   placeholder="Tác Giả" />
+                        </td>
+                    </tr>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Nội Dung: </td>
+                        <td style="font-size:20px">
+                            <input style="width: 700px; height: auto;" id="txtND" name="NoiDung" placeholder="Nội Dung" />
+                        </td>
+                    </tr>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Image: </td>
+                        <td style="font-size:20px">
+                            <input id="txtAnh" type="text" name="Image" placeholder="Image" />
+                            <button type="button" onclick="document.getElementById('fileInput').click()">Chọn ảnh</button>
+                        </td>
+                    </tr>
+                    <tr style="height:50px">
+                        <td style="font-family:Arial;font-size:24px;">Danh Mục: </td>
+                        <td style="font-size:20px">
+                            <input id="txtDM" type="text" name="DanhMuc"
+                                   placeholder="Danh Mục" />
+                        </td>
+                    </tr>
+                    <tr style="height:50px;padding-top:20px;">
+                        <td style=" width:200px; justify-content: space-between;display: flex">
+                            <button class="btn btn-info btn-fw"
+                                    onclick="insertTruyen();">
+                                Thêm mới
+                            </button>
+                            
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+    </section><!-- end main -->
+
+</body>
+</html>

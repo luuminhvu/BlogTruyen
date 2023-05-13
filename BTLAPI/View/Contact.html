@@ -1,0 +1,123 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Magnetic - Stunning Responsive HTML5/CSS3 Photography Template</title>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelhint.com">
+    <meta name="description" content="Magnetic is a stunning responsive HTML5/CSS3 photography/portfolio website  template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js'></script>
+    <link rel='stylesheet'
+          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css'
+          type='text/css' />
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" title="Magnetic" alt="Magnetic" /></a>
+        </div><!-- end logo -->
+
+        <div id="menu_icon"></div>
+        <nav>
+            <ul id="menu">
+            </ul>
+        </nav><!-- end navigation menu -->
+
+        <div class="footer clearfix">
+            <a style="margin-bottom:10px;" class="btn btn-info btn-fw" href="https://localhost:44347/View/Contact.html" type="button">CONTACT US</a>
+
+            <a style="margin-bottom:10px;" class="btn btn-info btn-fw" href="https://localhost:44347/View/AddTruyenUser.html" type="button">ĐÓNG GÓP</a>
+
+            <a class="btn btn-info btn-fw" href="https://localhost:44347/View/Login.html" type="button">ĐĂNG XUẤT</a>
+
+        </div><!-- end footer -->
+    </header><!-- end header -->
+
+
+    <div main clearfix id='map2' style='margin-top:20px;width: 100%; height: 100vh;'></div>
+</body>
+</html>
+<script>
+    //cau1
+    mapboxgl.accessToken =
+        'pk.eyJ1IjoiZHVjbmd1eWVuNDEiLCJhIjoiY2xmcjM4aG56MDFqdDN6bWh4aTl5bmNkNSJ9.TL3_vjwB7skVhoZX5XfFEw';
+    var map2 = new mapboxgl.Map({
+        container: 'map2',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [105.863700, 21.1011100], //Tọa độ lãnh thổ Việt Nam
+        zoom: 10
+
+    });
+
+    //cau2
+    var marker = new mapboxgl.Marker({
+        color: "red", //Màu của Marker là đỏ
+        draggable: true,
+        anchor: 'bottom', //Nhãn Hà Nội nằm dưới Marker
+    }).setLngLat([105.863700, 21.1011100]) //Thiết lập Marker tại hà Nội
+        .addTo(map2);
+
+    map2.addControl(new mapboxgl.NavigationControl({
+        showCompass: true,
+        showZoom: true,
+
+    }));
+    map2.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    }));
+    map2.addControl(new mapboxgl.FullscreenControl());
+
+
+    //cau3
+    document.getElementById('buttons').addEventListener('click', (event) => {
+        const language = event.target.id.substr('button-'.length);
+
+        map2.setLayoutProperty('country-label', 'text-field', [
+            'get',
+            `name_${language}`
+        ]);
+    });
+
+    //cau4
+    map2.on('click', function (e) {
+        // Lấy vị trí click trên bản đồ
+        var coordinates = e.lngLat;
+
+        // Tạo đối tượng Marker và thêm vào bản đồ
+        var marker = new mapboxgl.Marker()
+            .setLngLat(coordinates)
+            .addTo(map2);
+    });
+
+    //cau5
+    var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving-traffic',
+        interactive: true,
+    });
+
+    // Thêm đối tượng MapboxDirections vào bản đồ
+    map2.addControl(directions, 'bottom-left');
+    directions.setOrigin([longitude1, latitude1]);
+    directions.setDestination([longitude2, latitude2]);
+
+</script>
+
